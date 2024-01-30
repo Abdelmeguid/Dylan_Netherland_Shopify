@@ -31,7 +31,7 @@
 
   <!-- CSS ================================================== -->
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-  {{ 'accuselect-be-webflow.css' | asset_url | stylesheet_tag }}
+  {% comment %} {{ 'accuselect-be-webflow.css' | asset_url | stylesheet_tag }} {% endcomment %}
     {% comment %} {{ 'cookieconsent.css' | asset_url | stylesheet_tag }} {% endcomment %}
     {% comment %} {{ 'iframemanager.css' | asset_url | stylesheet_tag }}
     {{ 'normalize.css' | asset_url | stylesheet_tag }}
