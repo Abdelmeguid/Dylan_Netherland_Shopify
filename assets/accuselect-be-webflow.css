@@ -2488,7 +2488,7 @@ li {
 }
 
 .header-section {
-  min-height: 420px;
+  /* min-height: 420px; */
   background-color: #f5fbfc;
   justify-content: center;
   align-items: center;
