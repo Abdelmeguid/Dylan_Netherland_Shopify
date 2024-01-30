@@ -101,6 +101,9 @@ input.w-button {
 html[data-w-dynpage] [data-w-cloak] {
   color: transparent !important;
 }
+.w-code-block {
+  margin: unset;
+}
 .w-webflow-badge,
 .w-webflow-badge * {
   position: static;
@@ -172,10 +175,10 @@ html[data-w-dynpage] [data-w-cloak] {
   right: 12px !important;
   bottom: 12px !important;
   left: auto !important;
-  color: #AAADB0 !important;
+  color: #aaadb0 !important;
   background-color: #fff !important;
   border-radius: 3px !important;
-  padding: 6px 8px 6px 6px !important;
+  padding: 6px !important;
   font-size: 12px !important;
   opacity: 1 !important;
   line-height: 14px !important;
@@ -1148,7 +1151,7 @@ textarea.w-select {
  * ## Note
  * Safari (on both iOS and OS X) does not handle viewport units (vh, vw) well.
  * For example percentage units do not work on descendants of elements that
- * have any dimensions expressed in viewport units. It also doesn’t handle them at
+ * have any dimensions expressed in viewport units. It also doesnâ€™t handle them at
  * all in `calc()`.
  */
 /**
@@ -1337,7 +1340,7 @@ textarea.w-select {
 }
 /*
  * 1. We use content-box to avoid having to do `width: calc(10vh + 2vw)`
- *    which doesn’t work in Safari anyway.
+ *    which doesnâ€™t work in Safari anyway.
  * 2. Chrome renders images pixelated when switching to GPU. Making sure
  *    the parent is also rendered on the GPU (by setting translate3d for
  *    example) fixes this behavior.
