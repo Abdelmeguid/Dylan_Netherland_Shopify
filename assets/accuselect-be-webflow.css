@@ -2527,7 +2527,7 @@ li {
   background-color: var(--alice-blue);
   justify-content: center;
   align-items: center;
-  padding: 100px 3%;
+  
   display: flex;
 }
 
@@ -13190,10 +13190,7 @@ li {
     text-align: left;
   }
 
-  .header-section {
-    min-height: 500px;
-    padding-top: 140px;
-  }
+
 
   .header-h1 {
     font-size: 50px;
