@@ -1,4 +1,4 @@
-{% include 'block-width' %}
+{% comment %} {% include 'block-width' %}
 
 {% if section.blocks.size > 0 %}
   <div id="section-{{ section.id }}" class="{{ section.settings.section_style }}" data-section-id="{{ section.id }}" data-section-type="guarantee-template">
@@ -152,4 +152,4 @@
       }
     ]
   }
-{% endschema %}
+{% endschema %} {% endcomment %}
