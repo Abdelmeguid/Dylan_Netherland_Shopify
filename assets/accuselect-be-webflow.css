@@ -6378,10 +6378,10 @@ li {
 
 .container-default {
   max-width: 1240px;
-  margin-left: auto;
+  /* margin-left: auto;
   margin-right: auto;
   padding-left: 24px;
-  padding-right: 24px;
+  padding-right: 24px; */
 }
 
 .link-wrapper {
