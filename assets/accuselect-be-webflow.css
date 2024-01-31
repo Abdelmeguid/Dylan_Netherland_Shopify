@@ -8411,11 +8411,11 @@ li {
 }
 
 .btn-circle-secondary:hover {
-  /* color: #fff; */
+ color: #fff; 
   background-color: #4a3aff;
   border-color: #4a3aff;
   transform: scale3d(.94, .94, 1.01);
-  color:black;
+  
 }
 
 .btn-circle-secondary.slider-arrow {
