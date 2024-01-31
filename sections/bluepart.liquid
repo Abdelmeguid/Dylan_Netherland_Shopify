@@ -402,4 +402,147 @@
 
        {% comment %} part6  Calculator and the rest code {% endcomment %}
 
-  
+       <script>
+        let isUserScrolling = true;
+      
+        function lightsout() {
+          const targetDiv = document.getElementById('onboarding-block');
+          const topMargin = 40; // Adjust the margin value as desired
+      
+          const topOffset = targetDiv.getBoundingClientRect().top + window.pageYOffset;
+          const adjustedScrollTop = topOffset - topMargin;
+      
+          isUserScrolling = false;
+          window.scrollTo({
+            top: adjustedScrollTop,
+            behavior: 'smooth'
+          });
+      
+          document.getElementById("onboarding-block").classList.add("spotligt-onboarding");
+      
+          setTimeout(function() {
+            isUserScrolling = true;
+          }, 200);
+      
+        }
+      
+        function lightson() {
+          document.getElementById("onboarding-block").classList.remove("spotligt-onboarding");
+          if (window.location.hash === '#start') {
+            history.replaceState(null, null, window.location.href.split('#')[0]);
+          }
+        }
+      
+        document.addEventListener("click", function(event) {
+          var excludedDiv = document.getElementById("onboarding-block");
+          var targetElement = event.target;
+      
+          // Check if the clicked element or any of its parent elements is the excluded div
+          var isClickInsideExcludedDiv = targetElement === excludedDiv || excludedDiv.contains(targetElement);
+      
+          // If the click is not inside the excluded div, perform your desired action
+          if (!isClickInsideExcludedDiv) {
+            // Your action goes here
+            lightson();
+          }
+        });
+      
+        window.addEventListener('scroll', function() {
+          if (isUserScrolling && window.pageYOffset > 1000) {
+            lightson();
+            isUserScrolling = true;
+          }
+        });
+      
+        function handleHashChange() {
+          if (window.location.hash === '#start') {
+            lightsout();
+          }
+        }
+      
+        window.addEventListener('hashchange', handleHashChange);
+        window.addEventListener('load', handleHashChange);
+      </script>
+      <div class="content-section body">
+        <div class="container-flex home down information">
+        <div class="hero-content inside">
+        <h1 class="header-h4" style="margin-bottom: 10px;margin-top: 0px;"><p class="brand-span" style="font-size: 20px;color: #724ef5;margin-bottom: 10px; margin-top: 10px;">Persoonlijk, vrijblijvend en gratis advies.</p>
+                <span>Bereken in 1 minuut jouw besparing met een thuisbatterij.</span><br></h1>
+        <p class="hero-paragraph">Met wat simpele gegevens over jouw energiesituatie kunnen wij beginnen met berekenen welke thuisbatterij er bij jou past.</p>
+        <div class="form-block-3 w-form">
+          <form id="email-form" name="email-form" data-name="Email Form" method="POST" class="form" action="https://accuselect.nl/do/onboarding.php"> <!-- FORM -->
+            <p class="form-title">Waar woon je?</p>
+            <div class="div-block-24">
+              <div class="text-field-wrapper third">
+      
+                <input type="text" class="text-field-2 w-input" value="" name="postcode" data-name="postcode" placeholder="Postcode" id="postcode-input2" required="" maxlength="7" oninput="this.value = this.value.toUpperCase()">
+                
+              </div>
+              <div class="text-field-wrapper third small">
+      
+                <input type="text" class="text-field-2 w-input" maxlength="256" value="" name="huisnr" data-name="huisnr" placeholder="Huisnr." id="Huisnr" required="">
+                
+                <label for="name" class="field-label-2"></label>
+                <div class="text-field-done"></div>
+              </div>
+              <div class="text-field-wrapper third small">
+                
+                <input type="text" class="text-field-2 w-input" maxlength="256" name="toev" value="" data-name="toev" placeholder="Toevg." id="Toevg">
+                
+                <label for="name" class="field-label-2"></label></div>
+            </div>
+      
+            <script> function handleInputChange() { const postcodeInput = document.getElementById("postcode-input2").value; const isWaddeneiland = waddeneilandenCheck(postcodeInput); const waddeneilandAlert = document.getElementById("waddeneilandAlert2"); if (isWaddeneiland) { waddeneilandAlert.style.display = "block"; } else { waddeneilandAlert.style.display = "none"; } } document.getElementById("postcode-input2").addEventListener("input", handleInputChange); </script>
+            <div class="div-block-29" id="waddeneilandAlert2" style="display:none;">
+              <div class="text-block-90">Sorry, maar wij leveren niet op de Waddeneilanden. Neem <a href="https://accuselect.nl/contact/">contact op</a> voor een voorstel op maat.</div>
+            </div>
+      
+            <div class="form-step">
+              <div class="fields-group">
+                <div class="radio-button-container w-container">
+                  <p class="form-title">Heb je zonnepanelen thuis?</p>
+                  <div class="radio-buttons genders"><label class="radio-button-field-2 w-radio">
+                      <div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio-button gender male w-radio-input"></div> 
+                      
+                      <input type="radio" data-name="zonnepanelen" id="yes" name="zonnepanelen" value="yes" style="opacity:0;position:absolute;z-index:-1">
+                      <span for="yes" class="radio-button-label-2 w-form-label">yes</span>
+      
+                    </label><label class="radio-button-field-2 w-radio">
+                      <div class="w-form-formradioinput w-form-formradioinput--inputType-custom radio-button gender male yes w-radio-input"></div>
+                      
+                      <input type="radio" data-name="zonnepanelen" id="no" name="zonnepanelen" value="no" style="opacity:0;position:absolute;z-index:-1">
+                      <span for="no" class="radio-button-label-2 w-form-label">no</span>
+      
+                    </label></div>
+                </div>
+              </div>
+            </div>
+      
+              <input type="hidden" name="formnr" value="nul">
+              <input type="submit" value="Ontvang advies" class="form-button w-button">
+              <div class="button-card-wrapper">
+                        <a href="https://accuselect.nl/kopen/thuisbatterij-samenstellen/" class="link-2 underline-trail w-inline-block">
+                          <div class="utility-paragraph" style="text-decoration: none;"><span>of</span> <span style="text-decoration: underline;">je thuisbatterij zelf samenstellen</span></div>
+                        </a>
+                      </div>
+            <?php displayError(); ?>
+          </form>
+        </div>
+      </div>
+            <div class="container-8 w-container">
+              <div class="columns-10 w-row">
+                <div class="column-14 w-col w-col-4">
+                  <div class="hero-paragraph header-paragraph"><span class="vinkje">✓</span> Bespaar gemiddeld €1930 per jaar</div>
+                </div>
+                <div class="column-15 w-col w-col-4">
+                  <div class="hero-paragraph header-paragraph"><span class="vinkje">✓</span> Word onafhankelijker van het stroomnet</div>
+                </div>
+                <div class="column-16 w-col w-col-4">
+                  <div class="hero-paragraph header-paragraph"><span class="vinkje">✓</span> Altijd gebruik maken van je eigen stroom</div>
+                </div>
+              </div>
+            </div>
+            <div class="container-5">
+              <div class="form-mask"></div>
+            </div>
+          </div>
