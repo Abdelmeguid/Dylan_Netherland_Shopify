@@ -207,13 +207,6 @@
       "header": {
         "type": "header",
         "settings": {
-          "default_logo": "shopify:\/\/shop_images\/acc_small_b482ced7-c159-4f85-a762-8944a8d5a2b9.png",
-          "inverted_logo": "shopify:\/\/shop_images\/acc_small_b482ced7-c159-4f85-a762-8944a8d5a2b9.png",
-          "height_logo": 70,
-          "navigation_type": "center",
-          "navigation_wrapper": "fluid",
-          "main_menu_link_list": "main-menu",
-          "height_logo_mobile": 46
         }
       },
       "hero": {
@@ -460,6 +453,7 @@
         "block_order": [
           "1568145586211"
         ],
+        "disabled": true,
         "settings": {
           "section_height": "xlarge",
           "section_height_mobile": "xlarge",
@@ -471,6 +465,7 @@
       },
       "1594044373366": {
         "type": "featured-products",
+        "disabled": true,
         "settings": {
           "title": "Uitgelichte producten",
           "subtitle": "",
