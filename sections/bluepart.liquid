@@ -403,7 +403,67 @@
        {% comment %} part6  Calculator and the rest code {% endcomment %}
 
        
+<script>
+  let isUserScrolling = true;
 
+  function lightsout() {
+    const targetDiv = document.getElementById('onboarding-block');
+    const topMargin = 40; // Adjust the margin value as desired
+
+    const topOffset = targetDiv.getBoundingClientRect().top + window.pageYOffset;
+    const adjustedScrollTop = topOffset - topMargin;
+
+    isUserScrolling = false;
+    window.scrollTo({
+      top: adjustedScrollTop,
+      behavior: 'smooth'
+    });
+
+    document.getElementById("onboarding-block").classList.add("spotligt-onboarding");
+
+    setTimeout(function() {
+      isUserScrolling = true;
+    }, 200);
+
+  }
+
+  function lightson() {
+    document.getElementById("onboarding-block").classList.remove("spotligt-onboarding");
+    if (window.location.hash === '#start') {
+      history.replaceState(null, null, window.location.href.split('#')[0]);
+    }
+  }
+
+  document.addEventListener("click", function(event) {
+    var excludedDiv = document.getElementById("onboarding-block");
+    var targetElement = event.target;
+
+    // Check if the clicked element or any of its parent elements is the excluded div
+    var isClickInsideExcludedDiv = targetElement === excludedDiv || excludedDiv.contains(targetElement);
+
+    // If the click is not inside the excluded div, perform your desired action
+    if (!isClickInsideExcludedDiv) {
+      // Your action goes here
+      lightson();
+    }
+  });
+
+  window.addEventListener('scroll', function() {
+    if (isUserScrolling && window.pageYOffset > 1000) {
+      lightson();
+      isUserScrolling = true;
+    }
+  });
+
+  function handleHashChange() {
+    if (window.location.hash === '#start') {
+      lightsout();
+    }
+  }
+
+  window.addEventListener('hashchange', handleHashChange);
+  window.addEventListener('load', handleHashChange);
+</script>
 <div class="content-section body">
   <div class="container-flex home down information">
   <div class="hero-content inside">
