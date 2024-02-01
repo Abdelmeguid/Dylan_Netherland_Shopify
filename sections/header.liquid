@@ -1,8 +1,27 @@
-{% comment %} before start the Header {% endcomment %}
+{% comment %} Header section {% endcomment %}
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "text",
+        "label": "Custom Logo URL",
+        "id": "custom_logo",
+        "default": "https://accuselect.nl/images/default-logo.png",
+        "info": "Enter the URL for the custom logo image."
+      }
+    ]
+  }
+  {% endschema %}
+  
 
 <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" data-doc-height="1" role="banner" class="navbar-5 w-nav">
   <a style="margin-left: 5%; margin-right: 30px;" href="https://accuselect.nl/">
-    <img style="width: 150px;max-width: max-content;" href="https://accuselect.nl/" src="https://accuselect.nl/images/logo-orange.png" loading="lazy" srcset="https://accuselect.nl/images/logo-orange-p-500.png 500w, https://accuselect.nl/images/logo-orange-p-800.png 800w, https://accuselect.nl/images/logo-orange-p-1080.png 1080w, https://accuselect.nl/images/logo-orange-p-1600.png 1600w, https://accuselect.nl/images/logo-orange-p-2000.png 2000w, https://accuselect.nl/images/logo-orange.png 3046w" sizes="(max-width: 479px) 20vw, (max-width: 767px) 15vw, 8vw" alt="Accuselect logo, besparen met een thuisbatterij" class="image-18">
+    {% comment %} <img style="width: 150px;max-width: max-content;" href="https://accuselect.nl/" src="https://accuselect.nl/images/logo-orange.png" loading="lazy" srcset="https://accuselect.nl/images/logo-orange-p-500.png 500w, https://accuselect.nl/images/logo-orange-p-800.png 800w, https://accuselect.nl/images/logo-orange-p-1080.png 1080w, https://accuselect.nl/images/logo-orange-p-1600.png 1600w, https://accuselect.nl/images/logo-orange-p-2000.png 2000w, https://accuselect.nl/images/logo-orange.png 3046w" sizes="(max-width: 479px) 20vw, (max-width: 767px) 15vw, 8vw" alt="Accuselect logo, besparen met een thuisbatterij" class="image-18"> {% endcomment %}
+    {% assign customLogo = section.settings.custom_logo | default: "https://accuselect.nl/images/default-logo.png" %}
+
+  <img style="width: 150px; max-width: max-content;" href="https://accuselect.nl/" src="{{ customLogo }}" loading="lazy" alt="Accuselect logo" class="image-18">
   </a>
   <div class="container-10 w-container">
     <nav role="navigation" class="nav-menu-4 w-nav-menu" style="width: 100%; ">
